@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Splitter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="styles.css">    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js" integrity="sha512-qRj8N7fxOHxPkKjnQ9EJgLJ8Ng1OK7seBn1uk8wkqaXpa7OA13LO6txQ7+ajZonyc9Ts4K/ugXljevkFTUGBcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <img src="https://codewill.io/assets/images/logo_primary.png" style="max-width:200px;margin:auto" alt="CodeWill Logo">
+        <h1 class="text-center mt-5">CSV Splitter</h1>
+        <p class="text-center">
+            This app allows you to split the contents of a CSV file into two separate CSV files. 
+            Simply upload a CSV file, and then swipe or use the arrow keys to sort the items into the left and right CSV files. 
+            Once you're done, you can download the generated left and right CSV files.
+        </p>
+        <div class="my-4">
+            <input type="file" id="csvFile" accept=".csv">
+        </div>
+        <div id="selectionArea" style="display:none;">
+            <div id="leftListCol" class="col">
+                <h4>Left CSV</h4>
+                <ul id="leftList" class="list-group"></ul>
+                <button class="btn btn-primary mt-2" id="downloadLeft">Download Left CSV</button>
+            </div>
+            <div id="originalListCol" class="col">
+                <h4>Original List</h4>
+                <ul id="originalList" class="list-group"></ul>
+            </div>
+            <div id="rightListCol" class="col">
+                <h4>Right CSV</h4>
+                <ul id="rightList" class="list-group"></ul>
+                <button class="btn btn-primary mt-2" id="downloadRight">Download Right CSV</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        @media (min-width: 992px) {
+            #selectionArea {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            #originalListCol {
+                order: 2;
+            }
+            #leftListCol {
+                order: 1;
+            }
+            #rightListCol {
+                order:3;
+            }
+        }
+
+        @media (max-width: 991px) {
+            #selectionArea {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            #originalListCol {
+                order: 1;
+            }
+            #leftListCol {
+                order: 2;
+            }
+            #rightListCol {
+                order:3;
+            }
+        }
+    
+        @media (max-width: 991px) {
+            #selectionArea {
+                flex-direction: column;
+            }
+        }
+    
+        .list-group-item {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+    
+        
+</body>
+</html>
