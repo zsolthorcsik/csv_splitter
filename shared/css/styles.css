@@ -1,0 +1,67 @@
+
+:root {
+    --black: #1A1A1A;
+    --white: #F4F8FD;
+    --grey: #565B61;
+    --grey-blue: #334B6D;
+    --dark-blue: #2D3459;
+    --blue: #5577AA;
+    --light-blue: #D8E2EF;
+    --orange: #E6642F;
+    --light-orange: #EC946F;
+    --mango: #EB9526;
+    --banana: #EFB250;
+}
+
+body {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background: var(--white);
+    color: var(--black);
+}
+
+h1, h4 {
+    color: var(--dark-blue);
+}
+
+.container {
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.container * {
+    margin-bottom: 12px;
+}
+
+.btn-primary {
+    background: var(--blue);
+}
+
+.btn-primary:hover {
+    background: var(--dark-blue);
+}
+
+@media (min-width: 992px) {
+    #selectionArea {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #originalListCol {
+        order: 2;
+    }
+    #leftListCol, #rightListCol {
+        order: 1;
+    }
+}
+
+@media (max-width: 991px) {
+    #selectionArea {
+        flex-direction: column;
+    }
+}
+
+.list-group-item {
+    transition: background-color 0.3s ease;
+}
