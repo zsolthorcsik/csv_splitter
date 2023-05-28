@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Splitter</title>
+    <!-- Shared resources -->
+    <link rel="stylesheet" href="../shared/css/styles.css">
+    <script src="../shared/js/common.js"></script>
+    <script src="../shared/libs/jquery.min.js"></script>
+    <link rel="stylesheet" href="../shared/libs/bootstrap.min.css">
+    <!-- Page specific resources -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Text Splitter</h1>
+        <p class="text-center">
+            Enter a list of items separated by commas, then swipe or use the arrow keys to sort the items into the left and right lists. 
+            Once you're done, you can download the generated left and right text files.
+        </p>
+        <div class="my-4">
+            <textarea id="textList" rows="5" cols="50" placeholder="Enter your list here, separate items by comma"></textarea>
+        </div>
+        <div id="selectionArea" style="display:none;">
+            <div id="leftListCol" class="col">
+                <h4>Left CSV</h4>
+                <ul id="leftList" class="list-group"></ul>
+                <button class="btn btn-primary mt-2" id="downloadLeft">Download Left CSV</button>
+            </div>
+            <div id="originalListCol" class="col">
+                <h4>Original List</h4>
+                <ul id="originalList" class="list-group"></ul>
+            </div>
+            <div id="rightListCol" class="col">
+                <h4>Right CSV</h4>
+                <ul id="rightList" class="list-group"></ul>
+                <button class="btn btn-primary mt-2" id="downloadRight">Download Right CSV</button>
+            </div>
+        </div>
+    </div>    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="../shared/js/common.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
