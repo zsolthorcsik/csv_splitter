@@ -10,6 +10,8 @@ document.getElementById('textList').addEventListener('input', function() {
     populateOriginalList();
 });
 
+
+/*
 function populateOriginalList() {
     let list = document.getElementById('originalList');
     list.innerHTML = '';
@@ -21,28 +23,19 @@ function populateOriginalList() {
     });
     document.getElementById('selectionArea').style.display = 'flex';
 }
+*/
 
-// Use this method from the shared/js/common.js file
-function addToDataList(item, listId, dataList) {
-    let list = document.getElementById(listId);
-    let listItem = document.createElement('li');
-    listItem.classList.add('list-group-item');
-    listItem.innerText = item;
-    list.appendChild(listItem);
-    dataList.push(item);
-}
 
-document.getElementById('swipeRight').addEventListener('click', function() {
-    let item = originalData.shift();
-    addToDataList(item, 'rightList', rightData);
-    populateOriginalList();
+document.getElementById('downloadLeft').addEventListener('click', function() {
+    downloadCSV(leftData, 'left.csv');
 });
 
-document.getElementById('swipeLeft').addEventListener('click', function() {
-    let item = originalData.shift();
-    addToDataList(item, 'leftList', leftData);
-    populateOriginalList();
+document.getElementById('downloadRight').addEventListener('click', function() {
+    downloadCSV(rightData, 'right.csv');
 });
+
+
+
 
 document.getElementById('downloadLeft').addEventListener('click', function() {
     let textFile = new Blob([leftData.join('\n')], { type: 'text/plain' });
@@ -64,12 +57,21 @@ document.getElementById('downloadRight').addEventListener('click', function() {
     downloadLink.click();
 });
 
-// Add keyboard controls
-document.body.addEventListener('keyup', function(e) {
-    if (e.key === 'ArrowRight') {
-        document.getElementById('swipeRight').click();
-    }
+
+window.addEventListener('keydown', function(e) {
+    console.log(e.key);
+    let list = document.getElementById('originalList');
+    if (list.childNodes.length === 0) return;
+    let currentItem = list.childNodes[0];
+    let item = currentItem.innerText;
+  
     if (e.key === 'ArrowLeft') {
-        document.getElementById('swipeLeft').click();
+        addToDataList(item, 'leftList', leftData);
+        currentItem.remove();
+    } else if (e.key === 'ArrowRight') {
+        addToDataList(item, 'rightList', rightData);
+        currentItem.remove();
     }
-});
+  });
+  
+  

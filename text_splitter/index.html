@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Splitter</title>
-    <!-- Shared resources -->
-    <link rel="stylesheet" href="../shared/css/styles.css">
-    <script src="../shared/js/common.js"></script>
-    <script src="../shared/libs/jquery.min.js"></script>
-    <link rel="stylesheet" href="../shared/libs/bootstrap.min.css">
-    <!-- Page specific resources -->
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text Splitter</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">    
+        <link rel="stylesheet" href="../shared/css/styles.css">    
+        <link rel="stylesheet" href="styles.css">    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js" integrity="sha512-qRj8N7fxOHxPkKjnQ9EJgLJ8Ng1OK7seBn1uk8wkqaXpa7OA13LO6txQ7+ajZonyc9Ts4K/ugXljevkFTUGBcw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
 <body>
     <div class="container">
         <h1 class="text-center mt-5">Text Splitter</h1>
@@ -43,5 +41,51 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="../shared/js/common.js"></script>
     <script src="app.js"></script>
+    <style>
+        @media (min-width: 992px) {
+            #selectionArea {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            #originalListCol {
+                order: 2;
+            }
+            #leftListCol {
+                order: 1;
+            }
+            #rightListCol {
+                order:3;
+            }
+        }
+
+        @media (max-width: 991px) {
+            #selectionArea {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            #originalListCol {
+                order: 1;
+            }
+            #leftListCol {
+                order: 2;
+            }
+            #rightListCol {
+                order:3;
+            }
+        }
+    
+        @media (max-width: 991px) {
+            #selectionArea {
+                flex-direction: column;
+            }
+        }
+    
+        .list-group-item {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+
 </body>
 </html>
